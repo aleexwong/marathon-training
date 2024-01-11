@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="trainingPaceCalculator.css" />
+    <title>Training Pace Calculator</title>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Training Pace Calculator</h1>
+    </div>
+    <div class="rws-training-pace-calculator">
+      <div class="preset-buttons">
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="Half Marathon"
+          data-distance="13.1"
+        >
+          Half Marathon
+        </button>
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="Marathon"
+          data-distance="26.2"
+        >
+          Marathon
+        </button>
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="10K"
+          data-distance="6.2"
+        >
+          10K
+        </button>
+
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="5K"
+          data-distance="3.1"
+        >
+          5K
+        </button>
+
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="1 Mile"
+          data-distance="1"
+        >
+          1 Mile
+        </button>
+        <button
+          class="preset-button"
+          onclick="preset(event)"
+          type="button"
+          value="800m"
+          data-distance="0.5"
+        >
+          800m
+        </button>
+        <button onclick="goHome()">Reset</button>
+      </div>
+      <form class="inputFromUser" name="inputFromUser">
+        <table class="table-styling" cellpadding="4" cellspacing="0">
+          <tbody>
+            <tr bgcolor="#cccccc">
+              <td align="right">Recent race length (eg. 26.2):</td>
+              <td>
+                <input
+                  class="input-length"
+                  name="length"
+                  size="6"
+                  type="text"
+                />
+                <select
+                  class="select-units"
+                  name="units"
+                  onchange="updateDistance()"
+                >
+                  <option value="miles">miles</option>
+                  <option value="km">kilometres</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">My time (hours:minutes:seconds):</td>
+              <td>
+                <input
+                  class="input-hours"
+                  name="hours"
+                  size="2"
+                  type="text"
+                  value=""
+                  placeholder="00"
+                />
+                :
+                <input
+                  class="input-minutes"
+                  name="minutes"
+                  size="2"
+                  type="text"
+                  value=""
+                  placeholder="00"
+                />
+                :
+                <input
+                  class="input-seconds"
+                  name="seconds"
+                  size="2"
+                  type="text"
+                  value=""
+                  placeholder="00"
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td align="right">Display my training paces in:</td>
+              <td>
+                <select
+                  class="select-paceType"
+                  name="paceType"
+                  onchange="toggleMetric()"
+                >
+                  <option selected="selected" value="Miles">min/mile</option>
+                  <option value="km">min/km</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+                <input
+                  onclick="runConversion()"
+                  class="calculate-button"
+                  type="button"
+                  value="Calculate"
+                />
+                <div id="error-message"></div>
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td align="right">
+                Your <a class="easy-run-link" href="#easy">easy run</a> training
+                pace is:
+              </td>
+              <td>
+                <input
+                  class="input-easy"
+                  name="easy"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff">
+              <td align="right">
+                Your
+                <a class="tempo-run-link" href="#tempo">tempo run</a> training
+                pace is:
+              </td>
+              <td>
+                <input
+                  class="input-tempo"
+                  name="tempo"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td align="right">
+                Your <a class="vo2-max-link" href="#maxox">VO2-max</a> training
+                pace is:
+              </td>
+              <td>
+                <input
+                  class="input-maximum"
+                  name="maximum"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff">
+              <td align="right">
+                Your
+                <a class="speed-form-link" href="#speedform">speed form</a>
+                training pace is:
+              </td>
+              <td>
+                <input
+                  class="input-speed"
+                  name="speed"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#cccccc">
+              <td align="right">
+                Your
+                <a class="long-run-link" href="#longruns">long run</a> training
+                pace is:
+              </td>
+              <td>
+                <input
+                  class="input-xlong"
+                  name="xlong"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+            <tr bgcolor="#ffffff">
+              <td align="right">
+                Your <a class="yasso-link" href="#yasso">Yasso 800s</a> training
+                pace is:
+              </td>
+              <td>
+                <input
+                  class="input-yasso"
+                  name="yasso"
+                  size="17"
+                  type="text"
+                  value=""
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="tips-container" id="tipsContainer">
+      <h2>Running Tips</h2>
+      <ul>
+        <li>
+          <strong>Q: What is my training pace, and why is it important?</strong>
+          <br />
+          A: Your training pace is the speed at which you run during training
+          sessions. It is important because running at the right pace helps
+          optimize your workouts, prevent injuries, and improve overall
+          performance. Different types of runs (easy, tempo, long run) have
+          specific pace ranges that target different aspects of fitness.
+        </li>
+
+        <li>
+          <strong
+            >Q: How do I determine my ideal training pace for different types of
+            runs?</strong
+          >
+          <br />
+          A: You can determine your ideal training pace by considering your
+          recent race performance or using a training pace calculator. Easy runs
+          should be comfortable and conversational, tempo runs at a challenging
+          but sustainable pace, and speed workouts at a faster pace. Adjust
+          these paces based on your current fitness level and training goals.
+        </li>
+
+        <li>
+          <strong
+            >Q: Should I always run at my maximum training pace to improve
+            quickly?</strong
+          >
+          <br />
+          A: No, running at your maximum pace for every run is not recommended.
+          Consistency is key in training, and incorporating a variety of paces,
+          including easy and recovery runs, helps prevent burnout and reduce the
+          risk of injuries. Training should include a mix of intensities to
+          target different energy systems and build overall endurance.
+        </li>
+
+        <li>
+          <strong>Q: How often should I update my training pace?</strong>
+          <br />
+          A: It's a good practice to reevaluate your training paces every 4-6
+          weeks or after significant changes in fitness. As you become fitter,
+          your paces may change, and updating them ensures that your training
+          remains effective and aligned with your current abilities.
+        </li>
+
+        <li>
+          <strong
+            >Q: Can I use my race pace as my training pace for all runs?</strong
+          >
+          <br />
+          A: While your race pace is a useful reference, it's not suitable for
+          all training runs. Easy runs should be slower, and tempo or interval
+          runs may be faster. Tailor your training paces to the specific goals
+          of each workout to maximize the benefits of each session and avoid
+          unnecessary fatigue.
+        </li>
+      </ul>
+    </div>
+  </body>
+  <footer>
+    <div class="footer">
+      <p>
+        <a
+          href="https://www.runnersworld.com/uk/training/a760096/rws-training-pace-calculator/"
+        >
+          Original Calculator
+        </a>
+      </p>
+    </div>
+  </footer>
+  <script src="trainingPaceCalculations.js"></script>
+  <script src="presetButtons.js"></script>
+</html>
