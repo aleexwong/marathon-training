@@ -136,7 +136,7 @@ body {
 .tips-container {
   display: flex;
   max-width: 800px;
-  margin: 20px auto;
+  margin: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -146,4 +146,13 @@ body {
 .tips-container ul {
   list-style-type: none;
   margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+.footer {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px; /* Adjust the value as needed */
 }
