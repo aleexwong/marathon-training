@@ -37,8 +37,10 @@ body {
   transition: background-color 0.3s ease;
 }
 
+/* Add a subtle box-shadow on button hover */
 .preset-buttons button:hover {
   background-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Style the main container */
@@ -54,6 +56,11 @@ body {
 /* Style the form */
 .inputFromUser {
   margin-bottom: 20px;
+}
+/* Style form input focus */
+.inputFromUser input:focus {
+  border: 2px solid #007bff;
+  outline: none;
 }
 
 /* Style the table */
@@ -116,6 +123,12 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 3px; /* Adjust the value as needed */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculate-button:hover {
+  background-color: #45a049;
+  box-shadow: 0 0 15px rgba(0, 128, 0, 0.3);
 }
 
 /* Style the training pace links */
@@ -145,6 +158,9 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px; /* Adjust the value as needed */
 }
 
 .tips-container ul {
@@ -160,4 +176,18 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px; /* Adjust the value as needed */
+}
+
+/* Links */
+a:link {
+  text-decoration: none;
+}
+a:visited {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
 }
