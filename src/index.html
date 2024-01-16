@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marathon Training Calculator adapted from runner's world"
+    />
     <link rel="stylesheet" href="trainingPaceCalculator.css" />
-    <title>Training Pace Calculator</title>
+    <title>Train For Your Next Run</title>
   </head>
   <body>
     <div class="title">
@@ -15,16 +19,16 @@
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="half-marathon-button"
           value="Half Marathon"
-          data-distance="13.1"
+          data-distance="13.10"
         >
           Half Marathon
         </button>
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="marathon-button"
           value="Marathon"
           data-distance="26.2"
         >
@@ -33,27 +37,25 @@
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="10-kilometers-button"
           value="10K"
-          data-distance="6.2"
+          data-distance="6.21371"
         >
           10K
         </button>
-
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="5-kilometers-button"
           value="5K"
-          data-distance="3.1"
+          data-distance="3.10686"
         >
           5K
         </button>
-
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="1-mile-button"
           value="1 Mile"
           data-distance="1"
         >
@@ -62,7 +64,7 @@
         <button
           class="preset-button"
           onclick="preset(event)"
-          type="button"
+          type="800-meters-button"
           value="800m"
           data-distance="0.5"
         >
@@ -131,8 +133,8 @@
                   name="paceType"
                   onchange="toggleMetric()"
                 >
-                  <option selected="selected" value="Miles">min/mile</option>
-                  <option value="km">min/km</option>
+                  <option selected="selected" value="miles">min/mile</option>
+                  <option value="kilometres">min/km</option>
                 </select>
               </td>
             </tr>
@@ -312,8 +314,17 @@
       <p>
         <a
           href="https://www.runnersworld.com/uk/training/a760096/rws-training-pace-calculator/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Original Calculator
+        </a>
+        <a
+          href="https://github.com/aleexwong"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
         </a>
       </p>
     </div>
