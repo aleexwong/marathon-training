@@ -2,7 +2,7 @@
 Built this off the calculator that Runner's World provided, However did lack some functionality that I wanted
 
 Todo: 
-- Hosting on Netlify
+- ~Hosting on Netlify!~ <h4> https://marathontraining.netlify.app/ </h4>
 - Testing with PlayWright
 - Any new running tips I learn on the way!
 - Linking to any guides I find useful
