@@ -1,5 +1,5 @@
 function goHome() {
-  window.location.href = "/src/index.html";
+  window.location.href = "/"; // redirect to the home page
 }
 
 function preset(event) {
